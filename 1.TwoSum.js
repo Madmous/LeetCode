@@ -1,10 +1,10 @@
-// Approach #1 (Brute Force)
-
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
+
+// Approach #1 (Brute Force) - TC: O(n) ; SC = 1
 var twoSum = function(nums, target) {
   let number = [];
     
@@ -22,4 +22,27 @@ var twoSum = function(nums, target) {
   }
   
   return number;
+};
+
+// Approach #2 - TC: O(n) ; SC = O(n)
+var twoSum = function(nums, target) {
+    let number = [];
+    
+    for (let i = 0; i < nums.length; i++) {
+        
+        let numToFind = target - nums[i];
+        let numsClone = nums.slice();
+        
+        numsClone[i] = 'a';
+        
+        let indexOfNumToFind = numsClone.indexOf(numToFind);
+        
+        if (indexOfNumToFind !== -1) {
+            
+            number = [i, indexOfNumToFind];
+            break;
+        }
+    }
+    
+    return number;
 };
