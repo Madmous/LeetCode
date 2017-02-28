@@ -46,3 +46,24 @@ var twoSum = function(nums, target) {
     
     return number;
 };
+
+// Approach #3 - TC: O(n) ; SC = O(n)
+var twoSum = function(nums, target) {
+    let number = [];
+    let numByIndex = {};
+    
+    for (let i = 0; i < nums.length; i++) {
+        numByIndex[nums[i]] = i;
+    }
+    
+    for (let i = 0; i < nums.length; i++) {
+        let numToFind = target - nums[i];
+        
+        if (numByIndex.hasOwnProperty(numToFind) && numByIndex[numToFind] !== i) {
+            number = [i, numByIndex[numToFind]];
+            break;
+        }
+    }
+    
+    return number;
+};
